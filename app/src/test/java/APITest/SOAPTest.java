@@ -6,10 +6,30 @@ import org.testng.annotations.Test;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
+/**
+ * Tests SOAP NumberConversion service (NumberToWords operation) using RestAssured.
+ *
+ * <p>This test class sends a SOAP request to the NumberConversion web service
+ * hosted at dataaccess.com and verifies that the response contains the expected
+ * textual number representation.</p>
+ */
 public class SOAPTest {
 
+    /**
+     * Base URI for the SOAP NumberConversion service used in tests.
+     */
     private final String BASE_URI = "https://www.dataaccess.com/webservicesserver/NumberConversion.wso";
-    
+
+    /**
+     * Sends a SOAP NumberToWords request for the integer 500 and verifies:
+     * <ul>
+     *   <li>HTTP response status code is 200</li>
+     *   <li>Response body contains the phrase "five hundred"</li>
+     * </ul>
+     *
+     * <p>The test uses RestAssured to build and post an XML SOAP envelope and
+     * extracts the NumberToWordsResult from the SOAP response for assertion.</p>
+     */
     @Test
     public void sampleSOAPTest() {
         
