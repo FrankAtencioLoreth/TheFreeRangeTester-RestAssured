@@ -33,14 +33,16 @@ public class SOAPTest {
     @Test
     public void sampleSOAPTest() {
         
-        String requestBody = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-            "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">" +
-                "<soap:Body>" +
-                    "<NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">" +
-                    "<ubiNum>500</ubiNum>" +
-                    "</NumberToWords>" +
-                "</soap:Body>" +
-            "</soap:Envelope>";
+        String requestBody = """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+            <soap:Body>
+                <NumberToWords xmlns="http://www.dataaccess.com/webservicesserver/">
+                    <ubiNum>500</ubiNum>
+                </NumberToWords>
+            </soap:Body>
+        </soap:Envelope>
+        """;
 
         Response response = RestAssured.given()
             .contentType("text/xml; charset=utf-8")
