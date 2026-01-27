@@ -10,12 +10,15 @@ public class DataFactory {
     private String token;
     private Faker faker;
 
+    public DataFactory() {
+        this.faker = new Faker();
+    }
+
     public String generateRandomEmail() {
         return faker.internet().emailAddress(); 
     }
 
-    public String generateToken() { 
-        this.faker = new Faker();
+    public String generateToken() {
         
         String requestBody = """
             {
