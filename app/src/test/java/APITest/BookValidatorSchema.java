@@ -1,6 +1,7 @@
 package APITest;
 
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.lessThan;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -145,4 +146,18 @@ public class BookValidatorSchema {
             .statusCode(201)
             .log().all();
     }
+
+    @Test
+    public void validResponseTime() {
+
+        given()
+            .contentType(ContentType.JSON)
+            .when()
+            .get("/books")
+            .then().log().all()
+            .assertThat()
+            .statusCode(200)
+            .time(lessThan(2000L))
+            .log().all();
+    }   
 }
