@@ -1,0 +1,43 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name = "suites">
+    <test name = "API Testing Books">
+        <groups>
+            <run>
+                <include name = "api-books"></include>
+            </run>
+        </groups>
+        <classes>
+            <class name = "APITest.BookValidatorSchema"></class>
+        </classes>
+    </test>
+    <test name = "API Testing Authentication">
+        <groups>
+            <run>
+                <include name = "api-auth"></include>
+            </run>
+        </groups>
+        <classes>
+            <class name = "APITest.AuthTest"></class>
+        </classes>
+    </test>
+    <test name = "API Testing Authentication with token">
+        <groups>
+            <run>
+                <include name = "api-auth"></include>
+            </run>
+        </groups>
+        <classes>
+            <class name = "APITest.TokenAuthTest"></class>
+        </classes>
+    </test>
+     <test name = "API Testing using SOAP">
+        <groups>
+            <run>
+                <include name = "api-soap"></include>
+            </run>
+        </groups>
+        <classes>
+            <class name = "APITest.SOAPTest"></class>
+        </classes>
+    </test>
+</suite>

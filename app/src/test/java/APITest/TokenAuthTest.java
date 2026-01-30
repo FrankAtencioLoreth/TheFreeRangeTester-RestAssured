@@ -31,7 +31,7 @@ public class TokenAuthTest {
      */
     private DataFactory dataFactory;
 
-    @BeforeClass
+    @BeforeClass(groups = {"api-auth"})
     /**
      * TestNG setup executed once before tests in this class.
      *
@@ -46,7 +46,7 @@ public class TokenAuthTest {
         
     }
     
-    @Test
+    @Test(groups = {"api-auth"})
     /**
      * Requests the authenticated {@code /orders} endpoint and asserts a
      * successful {@code 200 OK} response when a valid token is provided.
@@ -64,7 +64,7 @@ public class TokenAuthTest {
 
     }
 
-    @Test
+    @Test(groups = {"api-auth"})
     /**
      * Fetches the list of books from {@code /books} using the authorized token
      * and verifies the call succeeds with HTTP {@code 200}.
@@ -82,7 +82,7 @@ public class TokenAuthTest {
 
     }
 
-    @Test
+    @Test(groups = {"api-auth"})
     /**
      * Submits an order for a book and asserts the API responds with
      * {@code 201 Created}. The method deserializes the response into an

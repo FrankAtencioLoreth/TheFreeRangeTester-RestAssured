@@ -34,7 +34,7 @@ public class BookValidatorSchema {
     private DataFactory dataFactory;
 
     
-    @BeforeClass
+    @BeforeClass(groups = {"api-books", "Regression"})
     /**
      * TestNG setup method run once before the test methods in this class.
      *
@@ -48,7 +48,7 @@ public class BookValidatorSchema {
         this.token = this.dataFactory.generateToken();
     }
 
-    @Test
+    @Test(groups = {"api-books", "Regression"})
     /**
      * Validates that the list-books endpoint returns payloads matching the
      * JSON schema located at {@code classpath:schemas/books-schema.json}.
@@ -64,7 +64,7 @@ public class BookValidatorSchema {
             .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schemas/books-schema.json"));
     }
 
-    @Test
+    @Test(groups = {"api-books", "Regression"})
     /**
      * Sends an order request with an invalid token and asserts the API
      * responds with {@code 401 Unauthorized}.
@@ -91,7 +91,7 @@ public class BookValidatorSchema {
             .log().all();
     }
 
-    @Test
+    @Test(groups = {"api-books", "Regression"})
     /**
      * Posts an empty order body using a valid token and expects a
      * {@code 400 Bad Request} response.
@@ -112,7 +112,7 @@ public class BookValidatorSchema {
     }
 
 
-    @Test
+    @Test(groups = {"api-books", "Regression"})
     /**
      * Requests a non-existing book id and asserts the service returns
      * {@code 404 Not Found}.
@@ -130,7 +130,7 @@ public class BookValidatorSchema {
             .log().all();
     }
 
-    @Test
+    @Test(groups = {"api-books", "Regression"})
     /**
      * Tries to create an API client with an empty payload and verifies the
      * expected error message for missing client name.
@@ -150,7 +150,7 @@ public class BookValidatorSchema {
             .log().all();
     }
 
-    @Test
+    @Test(groups = {"api-books", "Regression"})
     /**
      * Attempts to register a client with only the {@code clientName} field
      * and verifies the API returns an error indicating a missing email.
@@ -174,7 +174,7 @@ public class BookValidatorSchema {
             .log().all();
     }
 
-    @Test
+    @Test(groups = {"api-books", "Regression"})
     /**
      * Registers a new client with a generated email and asserts the
      * registration returns HTTP {@code 201 Created}.
@@ -199,7 +199,7 @@ public class BookValidatorSchema {
             .log().all();
     }
 
-    @Test
+    @Test(groups = {"api-books", "Regression"})
     /**
      * Checks that the response time for fetching the books list is below
      * the configured threshold (2 seconds in this test).

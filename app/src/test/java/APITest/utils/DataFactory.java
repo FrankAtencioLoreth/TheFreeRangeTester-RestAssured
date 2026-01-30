@@ -23,7 +23,7 @@ public class DataFactory {
     /**
      * Faker instance used to generate realistic random data.
      */
-    private Faker faker;
+    private final Faker faker;
 
     /**
      * Constructs a new DataFactory and initializes the internal faker.

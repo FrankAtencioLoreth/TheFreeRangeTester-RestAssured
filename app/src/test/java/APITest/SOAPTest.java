@@ -30,7 +30,7 @@ public class SOAPTest {
      * <p>The test uses RestAssured to build and post an XML SOAP envelope and
      * extracts the NumberToWordsResult from the SOAP response for assertion.</p>
      */
-    @Test
+    @Test(groups = {"api-soap"})
     public void sampleSOAPTest() {
         
         String requestBody = """

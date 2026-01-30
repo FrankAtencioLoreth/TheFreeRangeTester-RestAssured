@@ -34,11 +34,6 @@ java {
     }
 }
 
-application {
-    // Define the main class for the application.
-    mainClass = 'thefreerangetesterrestassuredcourse.App'
-}
-
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
@@ -54,5 +49,12 @@ tasks.withType(Javadoc) {
 
 tasks.named('test') {
     // Use TestNG for unit tests.
-    useTestNG();
+    useTestNG() {
+        suites 'src/test/resources/testNG.xml'
+    }
+    
+    // Esto mostrará el progreso en la consola
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }

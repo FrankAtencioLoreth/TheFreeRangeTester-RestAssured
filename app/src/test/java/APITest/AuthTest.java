@@ -30,13 +30,13 @@ public class AuthTest {
      * TestNG setup placeholder. Left intentionally minimal because each test
      * configures its own target URIs as needed.
      */
-    @BeforeClass
+    @BeforeClass(groups = {"api-auth"})
     public static void setup() {
         // Configuramos la URL base para no repetirla
         //RestAssured.baseURI = "https://simple-books-api.glitch.me";
     }
 
-    @Test
+    @Test(groups = {"api-auth"})
     /**
      * Demonstrates HTTP Basic authentication by calling the Postman echo
      * basic-auth endpoint and asserting a successful {@code 200 OK} response.
@@ -52,7 +52,7 @@ public class AuthTest {
             .statusCode(200);
     }
 
-    @Test
+    @Test(groups = {"api-auth"})
     /**
      * Demonstrates client registration for token-based access by POSTing
      * generated client credentials to {@code /api-clients} on the Simple
